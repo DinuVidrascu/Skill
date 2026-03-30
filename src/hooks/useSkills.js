@@ -4,13 +4,7 @@ import { db } from '../lib/firebase';
 import { doc, setDoc, onSnapshot } from 'firebase/firestore';
 import { useAuth } from './useAuth';
 
-const initialSkillsData = [
-  { id: 'csharp', name: 'C#', iconName: 'Code2', color: 'purple', xp: 875, timeSpent: 3600, lastActive: Date.now() - 100000 },
-  { id: 'cs', name: 'Computer science', iconName: 'Cpu', color: 'blue', xp: 425, timeSpent: 1800, lastActive: Date.now() - 200000 },
-  { id: 'web', name: 'Web development', iconName: 'Globe', color: 'cyan', xp: 47, timeSpent: 300, lastActive: Date.now() - 300000 },
-  { id: 'js', name: 'JavaScript', iconName: 'FileJson', color: 'yellow', xp: 25, timeSpent: 120, lastActive: Date.now() - 400000 },
-  { id: 'math', name: 'Math', iconName: 'Calculator', color: 'emerald', xp: 4, timeSpent: 60, lastActive: Date.now() - 500000 },
-];
+const initialSkillsData = [];
 
 export function useSkills() {
   const { user } = useAuth();
