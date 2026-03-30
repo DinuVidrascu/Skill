@@ -8,8 +8,8 @@ const initialSkillsData = [];
 
 export function useSkills() {
   const { user } = useAuth();
-  const [skills, setSkills] = useLocalStorage('skillTrackerProgres', initialSkillsData);
-  const [activityLog, setActivityLog] = useLocalStorage('skillTrackerHistory', []);
+  const [skills, setSkills] = useLocalStorage('skillTrackerProgres_v2', initialSkillsData);
+  const [activityLog, setActivityLog] = useLocalStorage('skillTrackerHistory_v2', []);
 
   // 1. Efect pentru încărcarea datelor din Firestore la login
   useEffect(() => {
