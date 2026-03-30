@@ -132,6 +132,35 @@ export default function App() {
             
             <div className={`flex items-center gap-2 px-3 py-1.5 rounded-full font-bold text-sm border shadow-sm transition-all ${currentStreak > 0 ? 'bg-orange-100 text-orange-600 border-orange-200' : 'bg-gray-100 text-gray-400 border-gray-200'}`}>
               <Flame size={18} className={currentStreak > 0 ? "animate-pulse-fast text-orange-500" : ""} fill={currentStreak > 0 ? "currentColor" : "none"} strokeWidth={currentStreak > 0 ? 0 : 2} />
+              <span>{currentStreak} {currentStreak === 1 ? 'Zi' : 'Zile'}</span>
+            </div>
+            
+            <div className="ml-0 sm:ml-4">
+              <AuthBadge />
+            </div>
+          </div>
+          
+          <div className="flex items-center gap-3 z-20 flex-wrap">
+            {notifyPermission !== 'granted' && (
+              <button 
+                onClick={requestNotificationPermission} 
+                className="flex items-center gap-2 bg-yellow-100 hover:bg-yellow-200 text-yellow-700 px-4 py-2 rounded-lg font-bold shadow-sm transition-all text-sm border border-yellow-200 cursor-pointer"
+                title="Activează notificările pentru memento-uri zilnice"
+              >
+                <BellRing size={16} /> Notificări
+              </button>
+            )}
+
+            <div className="relative">
+              <select 
+                value={sortBy}
+                onChange={(e) => setSortBy(e.target.value)}
+                className="appearance-none bg-white border border-gray-300 text-gray-700 font-medium py-2 pl-4 pr-10 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent cursor-pointer shadow-sm hover:border-gray-400 transition-colors"
+              >
+                <option value="progress">Cea mai mare progresie</option>
+                <option value="recent">Accesate recent</option>
+                <option value="alpha">Alfabetic</option>
+              </select>
               <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-gray-500">
                 <ChevronDown size={16} strokeWidth={3} />
               </div>
